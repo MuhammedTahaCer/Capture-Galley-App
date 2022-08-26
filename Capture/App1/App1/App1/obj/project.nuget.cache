@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "CjRmUz/77fC8wYSkUL2SSFhZlYrUi3hNG59I8tTO18pwI8AxKGVKPv0ShLX4LR87OvqNm0c9gclALgjgGnWiOw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\BLT YAZILIM\\Documents\\Visual Studio 2022\\Capture with EditZoom\\App1\\App1\\App1\\App1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\BLT YAZILIM\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\BLT YAZILIM\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\BLT YAZILIM\\.nuget\\packages\\syncfusion.licensing\\20.2.0.40\\syncfusion.licensing.20.2.0.40.nupkg.sha512",
+    "C:\\Users\\BLT YAZILIM\\.nuget\\packages\\syncfusion.xamarin.core\\20.2.0.40\\syncfusion.xamarin.core.20.2.0.40.nupkg.sha512",
+    "C:\\Users\\BLT YAZILIM\\.nuget\\packages\\syncfusion.xamarin.sfcarousel\\20.2.0.40\\syncfusion.xamarin.sfcarousel.20.2.0.40.nupkg.sha512",
+    "C:\\Users\\BLT YAZILIM\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\BLT YAZILIM\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\BLT YAZILIM\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.IpopUp" >
+    <ContentPage.Content>
+        <Grid Padding="20">
+            <local:PinchToZoomContainer>
+                <local:PinchToZoomContainer.Content>
+                    <Image x:Name="popUp" HeightRequest="600" WidthRequest="450" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </local:PinchToZoomContainer.Content>
+            </local:PinchToZoomContainer>
+        </Grid>
+    </ContentPage.Content>
+        <!--Resmin Adını Çekmek için; iImages classından değeri görmesi çin ne yapılabilir
+    <Label Text="{Binding iName}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large"/> -->
+</ContentPage>

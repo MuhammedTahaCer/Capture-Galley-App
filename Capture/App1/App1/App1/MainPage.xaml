@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.MainPage"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#1C375C"
+             
+             >
+
+
+    <ContentPage.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="LightYellow" />
+            <Setter Property="BorderColor" Value="#1C375C" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="Padding" Value="30"/>
+        </Style>
+
+        <Style x:Key="headerLabel" TargetType="Label">
+            <Setter Property="Margin" Value="0, 8" />
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="TextColor" Value="DarkGoldenrod" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+
+        <Style TargetType="Image">
+            <Setter Property="FlexLayout.Order" Value="-1" />
+            <Setter Property="FlexLayout.AlignSelf" Value="Center" />
+        </Style>
+
+        <Style TargetType="ImageButton" Class="edit">
+            <Setter Property="Margin" Value="40,0,10,40"/>
+            <Setter Property="Source" Value="edit.png"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="WidthRequest" Value="50"/>
+        </Style>
+        <Style TargetType="ImageButton" Class="zoom">
+            <Setter Property="Margin" Value="40,0,10,40"/>
+            <Setter Property="Source" Value="magnifier.png"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="WidthRequest" Value="50"/>
+        </Style>
+
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                                         <StackLayout Orientation="Horizontal" Margin="30,0,0,20">
+                <Label Grid.Row="0" VerticalOptions="Center"  Text="Müşteri Hizmet &#x0a; Takibi" FontSize="30" 
+                                               FontAttributes="Bold" TextColor="Azure" />
+                <Image Grid.Row="0" Margin="0,20" Source="logo_white.png" VerticalOptions="Center" Aspect="AspectFit" 
+                                               HeightRequest="70" ></Image>
+                                        </StackLayout>
+                                        <Image x:Name="captured" Source="" BindingContextChanged="btnOpenCamera_Clicked" IsVisible="false"/>
+            
+            
+                    <Frame Grid.Row="1" Margin="0,0,0,-40" BorderColor="#1C375C" HasShadow="True"  CornerRadius="50" HeightRequest="700">
+                        <Grid HorizontalOptions="Center"  Margin="20,10,20,0" >
+                                
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        
+                                            <StackLayout Orientation="Horizontal" Margin="10,0,10,20" HeightRequest="50">
+                                                <Button  x:Name="btnOpenCamera" Text="Resim Ekle"  FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                                                        Command="{Binding OpenCamera}" Clicked="btnOpenCamera_Clicked"  BackgroundColor="#1C375C" CornerRadius="25" 
+                                                        TextColor="Azure"/>
+                                
+                                                
+
+                                            </StackLayout>
+
+                                            <ScrollView Grid.Row="1" Orientation="Both" MinimumHeightRequest="650"  > 
+                                                
+                                              <Grid >
+                                                  <FlexLayout Grid.Row="0">
+
+                                                      <!-- Resim 1-->
+                                                      <Frame  x:Name="frame" WidthRequest="200" IsVisible="true"  Margin="20,0,40,0">
+                                                          <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center" HeightRequest="280">
+                                                              <Image x:Name="imj" Source="icon" BindingContextChanged="btnOpenCamera_Clicked"
+                                                                     HeightRequest="150" WidthRequest="150" Aspect="AspectFit" />
+                                                                    
+                                                              <Label Text="Resim 1" HorizontalTextAlignment="Center"
+                                                                     Style="{StaticResource headerLabel}" />
+                                                                
+                                                              <RelativeLayout Padding="0,25,15,0" VerticalOptions="Center" HorizontalOptions="EndAndExpand" >
+                                                                  <Grid Padding="140,20,70,0" HorizontalOptions="End">
+                                                                      <Image Source="edit.png" HeightRequest="30" WidthRequest="30" >
+                                                                          <Image.GestureRecognizers>
+                                                                              <TapGestureRecognizer   Tapped="edit1_Tapped" CommandParameter="{Binding iImage}"/>
+                                                                          </Image.GestureRecognizers>
+                                                                      </Image>
+                                                                  </Grid>
+                                                                  <Grid Margin="70,20,0,0" HorizontalOptions="Start">
+                                                                      <Image Source="magnifier.png" HeightRequest="30" WidthRequest="30">
+                                                                          <Image.GestureRecognizers>
+                                                                              <TapGestureRecognizer Tapped="zoom1_Tapped" CommandParameter="{Binding iImage}"/>
+                                                                          </Image.GestureRecognizers>
+                                                                      </Image>
+                                                                  </Grid>
+                                                              </RelativeLayout>
+                                                              <Label FlexLayout.Grow="1" />
+                                                          </FlexLayout>
+                                                      </Frame>
+                                                      <!--Resim 2-->
+                                                      <Frame x:Name="frame2" WidthRequest="200" IsVisible="false" Margin="00,0,40,0">
+                                                          <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center"  >
+                                                              <Label Text="Resim 2" HorizontalTextAlignment="Center"
+                                                                     Style="{StaticResource headerLabel}" />
+                                                              <Image x:Name="imj2" Source="icon" BindingContextChanged="btnOpenCamera_Clicked"
+                                                                        HeightRequest="150" WidthRequest="150" Aspect="AspectFit" />
+
+                                                                <RelativeLayout Padding="0,25,15,0" VerticalOptions="Center" HorizontalOptions="EndAndExpand" >
+                                                                  <Grid Padding="140,20,70,0" HorizontalOptions="End">
+                                                                      <Image Source="edit.png" HeightRequest="30" WidthRequest="30" >
+                                                                          <Image.GestureRecognizers>
+                                                                              <TapGestureRecognizer   Tapped="edit1_Tapped" CommandParameter="{Binding iImage}"/>
+                                                                          </Image.GestureRecognizers>
+                                                                      </Image>
+                                                                  </Grid>
+                                                                  <Grid Margin="70,20,0,0" HorizontalOptions="Start">
+                                                                      <Image Source="magnifier.png" HeightRequest="30" WidthRequest="30">
+                                                                          <Image.GestureRecognizers>
+                                                                              <TapGestureRecognizer Tapped="zoom1_Tapped" CommandParameter="{Binding iImage}"/>
+                                                                          </Image.GestureRecognizers>
+                                                                      </Image>
+                                                                  </Grid>
+                                                                 </RelativeLayout>
+                                                              <Label FlexLayout.Grow="1" />
+                                                          </FlexLayout>
+                                                      </Frame>
+                                                      <!--Resim 3-->
+                                                      <Frame x:Name="frame3" WidthRequest="200" IsVisible="false" Margin="0,0,20,0">
+                                                          <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center"  >
+                                                              <Label Text="Resim 3" HorizontalTextAlignment="Center"
+                                                                       Style="{StaticResource headerLabel}" />
+                                                              <Image x:Name="imj3" Source="icon" BindingContextChanged="btnOpenCamera_Clicked"
+                                                                        HeightRequest="150" WidthRequest="150" Aspect="AspectFit" />
+
+                                                              <RelativeLayout Padding="0,25,15,0" VerticalOptions="Center" HorizontalOptions="EndAndExpand" >
+                                                                  <Grid Padding="140,20,70,0" HorizontalOptions="End">
+                                                                      <Image Source="edit.png" HeightRequest="30" WidthRequest="30" >
+                                                                          <Image.GestureRecognizers>
+                                                                              <TapGestureRecognizer   Tapped="edit1_Tapped" CommandParameter="{Binding iImage}"/>
+                                                                          </Image.GestureRecognizers>
+                                                                      </Image>
+                                                                  </Grid>
+                                                                  <Grid Margin="70,20,0,0" HorizontalOptions="Start">
+                                                                      <Image Source="magnifier.png" HeightRequest="30" WidthRequest="30">
+                                                                          <Image.GestureRecognizers>
+                                                                              <TapGestureRecognizer Tapped="zoom1_Tapped" CommandParameter="{Binding iImage}"/>
+                                                                          </Image.GestureRecognizers>
+                                                                      </Image>
+                                                                  </Grid>
+                                                              </RelativeLayout>
+                                                              <Label FlexLayout.Grow="1" />
+                                                          </FlexLayout>
+                                                      </Frame>
+                                                      <!--Resimler Bitti-->
+                                                  </FlexLayout>
+                                              </Grid>
+                                            </ScrollView>
+                                       <Label Grid.Row="4" Text="Resimleri Gönder Butonu Gelecek" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
+
+                         </Grid>
+                    </Frame>
+        </Grid>
+    </ContentPage.Content>
+    
+    
+    
+</ContentPage>
